@@ -1,5 +1,11 @@
 #!/bin/bash
 
+export ROOT_DIR=$(pwd)
+export KERNEL_VERSION=4.19.100-bone-rt-r46
+export TOOLCHAIN=gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf
+export ARCHITECTURE=arm-linux-gnueabihf
+export FILESYSTEM=debian-10.3-minimal-armhf-2020-02-10
+
 echo "****************************************"
 echo " RT Linux Build for TI AM335x(BBB)"
 echo " Kernel Version : ${KERNEL_VERSION}"
@@ -9,11 +15,6 @@ echo " Architecture : ${ARCHITECTURE}"
 echo " Note : It will take several hours for downloading and building the all required sources."
 echo "****************************************"
 
-export ROOT_DIR=$(pwd)
-export KERNEL_VERSION=4.14.170-bone-rt-r32
-export TOOLCHAIN=gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf
-export ARCHITECTURE=arm-linux-gnueabihf
-export FILESYSTEM=debian-10.3-minimal-armhf-2020-02-10
 
 
 echo "****************************************"

@@ -11,6 +11,10 @@ Script to create bootable microSD image for Preempt RT Linux on BeagleBone Black
     ```
     $ ./build.sh
     ```
+    ```
+    lzop might be installed before start.
+    $ apt-get install lzop
+    ```
 4. Run Flash.sh
 > If the microSD card has device name 'sdc', type below
     ```

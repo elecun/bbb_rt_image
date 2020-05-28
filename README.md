@@ -21,5 +21,5 @@ Script to create bootable microSD image for Preempt RT Linux on BeagleBone Black
 4. Run Flash.sh
 > If the microSD card has device name 'sdc', type below
 ```
-    $ sudo ./flash.sh sdc
+$ sudo ./flash.sh sdc
 ```

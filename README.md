@@ -13,9 +13,9 @@ Script to create bootable microSD image for Preempt RT Linux on BeagleBone Black
    ```
     
 > Download and build all related source code.
-    ```
+   ```
     $ ./build.sh
-    ```
+   ```
    
   
 4. Run Flash.sh

@@ -9,7 +9,8 @@ fi
 
 export DISK=/dev/"$1"
 export ROOT_DIR=$(pwd)
-export KERNEL_VERSION=4.19.100-bone-rt-r46
+export KERNEL_VERSION=4.19.106-bone-rt-r49
+export NONRT_KERNEL_VERSION=4.19.106-bone49
 export TOOLCHAIN=gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf
 export ARCHITECTURE=arm-linux-gnueabihf
 export FILESYSTEM=debian-10.3-minimal-armhf-2020-02-10

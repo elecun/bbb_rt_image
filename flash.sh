@@ -9,8 +9,8 @@ fi
 
 export DISK=/dev/"$1"
 export ROOT_DIR=$(pwd)
-export KERNEL_VERSION=4.19.106-bone-rt-r49
-export NONRT_KERNEL_VERSION=4.19.106-bone49
+export KERNEL_VERSION=4.19.127-bone-rt-r52
+export NONRT_KERNEL_VERSION=4.19.127-bone-r52
 export TOOLCHAIN=gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf
 export ARCHITECTURE=arm-linux-gnueabihf
 export FILESYSTEM=debian-10.4-minimal-armhf-2020-05-10
@@ -78,21 +78,18 @@ sudo sh -c "echo 'uname_r=${KERNEL_VERSION}' >> /media/rootfs/boot/uEnv.txt"
 echo "****************************************"
 echo "8/11. Copy Kernel image..."
 echo "****************************************"
-#sudo cp -v ./bb-kernel-${KERNEL_VERSION}/deploy/${KERNEL_VERSION}.zImage /media/rootfs/boot/vmlinuz-${KERNEL_VERSION}
-sudo cp -v ./bb-kernel/deploy/${KERNEL_VERSION}.zImage /media/rootfs/boot/vmlinuz-${KERNEL_VERSION}
+sudo cp -v ./bb-kernel-${KERNEL_VERSION}/deploy/${KERNEL_VERSION}.zImage /media/rootfs/boot/vmlinuz-${KERNEL_VERSION}
 
 echo "****************************************"
 echo "9/11. Copy Kernel Device Tree Binaries"
 echo "****************************************"
 sudo mkdir -p /media/rootfs/boot/dtbs/${KERNEL_VERSION}/
-#sudo tar xf ./bb-kernel-${KERNEL_VERSION}/deploy/${KERNEL_VERSION}-dtbs.tar.gz -C /media/rootfs/boot/dtbs/${KERNEL_VERSION}/
-sudo tar xf ./bb-kernel/deploy/${KERNEL_VERSION}-dtbs.tar.gz -C /media/rootfs/boot/dtbs/${KERNEL_VERSION}/
+sudo tar xf ./bb-kernel-${KERNEL_VERSION}/deploy/${KERNEL_VERSION}-dtbs.tar.gz -C /media/rootfs/boot/dtbs/${KERNEL_VERSION}/
 
 echo "****************************************"
 echo "10/11. Copy Kernel Modules"
 echo "****************************************"
-#sudo tar xf ./bb-kernel-${KERNEL_VERSION}/deploy/${KERNEL_VERSION}-modules.tar.gz -C /media/rootfs/
-sudo tar xf ./bb-kernel/deploy/${KERNEL_VERSION}-modules.tar.gz -C /media/rootfs/
+sudo tar xf ./bb-kernel-${KERNEL_VERSION}/deploy/${KERNEL_VERSION}-modules.tar.gz -C /media/rootfs/
 
 echo "****************************************"
 echo "11/11. File System Table"

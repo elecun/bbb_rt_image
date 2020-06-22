@@ -13,7 +13,7 @@ export KERNEL_VERSION=4.19.106-bone-rt-r49
 export NONRT_KERNEL_VERSION=4.19.106-bone49
 export TOOLCHAIN=gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf
 export ARCHITECTURE=arm-linux-gnueabihf
-export FILESYSTEM=debian-10.3-minimal-armhf-2020-02-10
+export FILESYSTEM=debian-10.4-minimal-armhf-2020-05-10
 
 echo "****************************************"
 echo " RT Linux flash on microSD Card for TI AM335x(BBB)"
@@ -43,7 +43,8 @@ echo "****************************************"
 sudo sfdisk ${DISK} <<-__EOF__
 4M,,L,*
 __EOF__
-sudo mkfs.ext4 -L rootfs -O ^metadata_csum,^64bit ${DISK}1
+#sudo mkfs.ext4 -L rootfs -O ^metadata_csum,^64bit ${DISK}1
+sudo mkfs.ext4 -L rootfs ${DISK}1
 
 
 echo "****************************************"

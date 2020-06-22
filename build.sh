@@ -1,8 +1,8 @@
 #!/bin/bash
 
 export ROOT_DIR=$(pwd)
-export KERNEL_VERSION=4.19.106-bone-rt-r49
-export NONRT_KERNEL_VERSION=4.19.106-bone49
+export KERNEL_VERSION=4.19.127-bone-rt-r52
+export NONRT_KERNEL_VERSION=4.19.127-bone-r52
 export TOOLCHAIN=gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf
 export ARCHITECTURE=arm-linux-gnueabihf
 export FILESYSTEM=debian-10.4-minimal-armhf-2020-05-10
@@ -46,12 +46,13 @@ echo "****************************************"
 echo "3/4. Setup Kernel"
 echo "****************************************"
 cd ${ROOT_DIR}
-git clone https://github.com/RobertCNelson/bb-kernel
-cd bb-kernel/
-git checkout origin/am33x-rt-v4.19 -b tmp
-#wget https://github.com/RobertCNelson/bb-kernel/archive/${KERNEL_VERSION}.tar.gz
-#tar xf ${KERNEL_VERSION}.tar.gz
-#cd bb-kernel-${KERNEL_VERSION}
+#git clone https://github.com/RobertCNelson/bb-kernel
+#cd bb-kernel/
+#git checkout origin/am33x-rt-v4.19 -b tmp
+
+wget https://github.com/RobertCNelson/bb-kernel/archive/${KERNEL_VERSION}.tar.gz
+tar xf ${KERNEL_VERSION}.tar.gz
+cd bb-kernel-${KERNEL_VERSION}
 ./build_kernel.sh
 
 #for TI BSP

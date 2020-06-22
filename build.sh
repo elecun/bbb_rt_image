@@ -5,7 +5,7 @@ export KERNEL_VERSION=4.19.106-bone-rt-r49
 export NONRT_KERNEL_VERSION=4.19.106-bone49
 export TOOLCHAIN=gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf
 export ARCHITECTURE=arm-linux-gnueabihf
-export FILESYSTEM=debian-10.3-minimal-armhf-2020-02-10
+export FILESYSTEM=debian-10.4-minimal-armhf-2020-05-10
 
 echo "****************************************"
 echo " RT Linux Build for TI AM335x(BBB)"
@@ -46,10 +46,20 @@ echo "****************************************"
 echo "3/4. Setup Kernel"
 echo "****************************************"
 cd ${ROOT_DIR}
-wget https://github.com/RobertCNelson/bb-kernel/archive/${KERNEL_VERSION}.tar.gz
-tar xf ${KERNEL_VERSION}.tar.gz
-cd bb-kernel-${KERNEL_VERSION}
+git clone https://github.com/RobertCNelson/bb-kernel
+cd bb-kernel/
+git checkout origin/am33x-rt-v4.19 -b tmp
+#wget https://github.com/RobertCNelson/bb-kernel/archive/${KERNEL_VERSION}.tar.gz
+#tar xf ${KERNEL_VERSION}.tar.gz
+#cd bb-kernel-${KERNEL_VERSION}
 ./build_kernel.sh
+
+#for TI BSP
+#cd ${ROOT_DIR}
+#git clone https://github.com/RobertCNelson/ti-linux-kernel-dev.git
+#cd ti-linux-kernel-dev/
+#git checkout origin/ti-linux-rt-4.19.y -b tmp
+#./build_kernel.sh
 
 echo "****************************************"
 echo "4/4. Setup Root File System... ${FILESYSTEM}"

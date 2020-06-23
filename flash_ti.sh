@@ -9,13 +9,13 @@ fi
 
 export DISK=/dev/"$1"
 export ROOT_DIR=$(pwd)
-export KERNEL_VERSION=4.19.100-bone-rt-r46
+export KERNEL_VERSION=4.19.94-ti-rt-r45
 export TOOLCHAIN=gcc-linaro-6.5.0-2018.12-x86_64_arm-linux-gnueabihf
 export ARCHITECTURE=arm-linux-gnueabihf
 export FILESYSTEM=debian-10.4-minimal-armhf-2020-05-10
 
 echo "****************************************"
-echo " RT Linux flash on microSD Card for TI AM335x(BBB)"
+echo " RT Linux flash on microSD Card for TI AM335x(BBB compatible OSD3358)"
 echo " Kernel Version : ${KERNEL_VERSION}"
 echo " Root File System : ${FILESYSTEM}"
 echo " Toolchain : ${TOOLCHAIN}"
@@ -77,18 +77,18 @@ sudo sh -c "echo 'uname_r=${KERNEL_VERSION}' >> /media/rootfs/boot/uEnv.txt"
 echo "****************************************"
 echo "8/11. Copy Kernel image..."
 echo "****************************************"
-sudo cp -v ./bb-kernel-${KERNEL_VERSION}/deploy/${KERNEL_VERSION}.zImage /media/rootfs/boot/vmlinuz-${KERNEL_VERSION}
+sudo cp -v ./ti-linux-kernel-dev-${KERNEL_VERSION}/deploy/${KERNEL_VERSION}.zImage /media/rootfs/boot/vmlinuz-${KERNEL_VERSION}
 
 echo "****************************************"
 echo "9/11. Copy Kernel Device Tree Binaries"
 echo "****************************************"
 sudo mkdir -p /media/rootfs/boot/dtbs/${KERNEL_VERSION}/
-sudo tar xf ./bb-kernel-${KERNEL_VERSION}/deploy/${KERNEL_VERSION}-dtbs.tar.gz -C /media/rootfs/boot/dtbs/${KERNEL_VERSION}/
+sudo tar xf ./ti-linux-kernel-dev-${KERNEL_VERSION}/deploy/${KERNEL_VERSION}-dtbs.tar.gz -C /media/rootfs/boot/dtbs/${KERNEL_VERSION}/
 
 echo "****************************************"
 echo "10/11. Copy Kernel Modules"
 echo "****************************************"
-sudo tar xf ./bb-kernel-${KERNEL_VERSION}/deploy/${KERNEL_VERSION}-modules.tar.gz -C /media/rootfs/
+sudo tar xf ./ti-linux-kernel-dev-${KERNEL_VERSION}/deploy/${KERNEL_VERSION}-modules.tar.gz -C /media/rootfs/
 
 echo "****************************************"
 echo "11/11. File System Table"

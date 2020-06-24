@@ -73,6 +73,7 @@ echo "****************************************"
 echo "7/11. Set uname_r in /boot/uEnv.txt"
 echo "****************************************"
 sudo sh -c "echo 'uname_r=${KERNEL_VERSION}' >> /media/rootfs/boot/uEnv.txt"
+sudo sh -c "echo 'dtb=am335x-osd3358-sm-red.dtb' >> /media/rootfs/boot/uEnv.txt"
 
 echo "****************************************"
 echo "8/11. Copy Kernel image..."
